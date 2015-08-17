@@ -1,0 +1,1042 @@
+@import '../lib/index'
+
+reset()
+box-reset()
+
+/* Variables */
+
+negro = #2f2f30
+azul = #25a8cc
+
+/* Utilities */
+
+.u-icon
+	size(25px)
+	vertical-align middle
+
+.u-flex-center
+	display flex
+	flex-wrap wrap
+	justify-content center
+	align-items center
+
+hr
+	height 1px
+	border 0
+	margin 0
+	background rgba(#ccc, .05)
+	width 100%
+	
+.container
+	max-width 1280px
+	width 100%
+	margin 0 auto
+	position relative
+	
+
+/* Global styles */
+
+
+body
+	font-family: 'Roboto', sans-serif;
+
+a
+	text-decoration none
+
+.topBar
+	background negro
+	size(100%, 50px)
+	font-weight 300
+	z-index 3
+	top 0
+	position fixed
+	transition transform 0.3s
+	box-shadow 0px 1px 3px rgba(black, .10)
+	@media screen and (min-width: 960px)
+		padding 0 em(20px)
+	header
+		max-width 1280px
+		height 100%
+		position relative
+		margin 0 auto
+		@media screen and (min-width: 768px)
+			justify-content flex-start
+	&-hamburguer
+		size(50px)
+		line-height 50px
+		text-align center
+		position absolute
+		left 0
+		top 0
+		@media screen and (min-width: 768px)
+			display none		
+		svg
+			fill white
+	&-logo
+		height inherit
+		@media screen and (min-width: 768px)
+			padding-left 20px
+		a
+			size(100%)
+			display flex
+			align-items center
+			img
+				height 18px
+	&-menu
+		height inherit
+		display none
+		@media screen and (min-width: 768px)
+			display block
+		ul
+			display flex
+			height inherit
+			li
+				size(125px, 100%)
+				@media screen and (min-width: 960px)
+					width 200px
+				a
+					color white
+					size(100%)
+					font-size em(14px)
+	&-buttons
+		position absolute
+		right 0
+		top 0
+		display flex
+		height inherit
+		&--publications
+			background azul
+			size(150px, 100%)
+			display none
+			@media screen and (min-width: 768px)
+				display block
+			a
+				size(100%)			
+				color white
+		&--logged
+			size(50px)
+			color white
+			cursor pointer
+			@media screen and (min-width: 768px)
+				size(200px, 100%)
+			span
+				margin-right 20px
+				display none
+				@media screen and (min-width: 768px)
+					display block
+			div
+				circle(32px)
+				overflow hidden
+				img
+					size(100%)
+		&--login
+			size(50px)
+			@media screen and (min-width: 768px)
+				size(100%)
+			a
+				color white
+				size(100%)
+				transition color 250ms ease-in-out
+				span
+					display none
+					@media screen and (min-width: 768px)
+						display block
+				svg
+					fill white
+					@media screen and (min-width: 768px)
+						display none
+				&:hover
+					color azul
+
+.sideNav
+	background rgba(negro, .95)
+	size(250px, 100%)
+	position fixed
+	top 0
+	right 0
+	//visibility hidden
+	opacity 0
+	transition: all 0.3s;
+	overflow-y auto
+	z-index -1
+	&-userInfo
+		display flex
+		justify-content center
+		flex-wrap wrap
+		padding 10px 0
+		@media screen and (min-width: 768px)
+			padding 20px 0
+		div
+			circle(150px)
+			overflow hidden
+			@media screen and (min-width: 768px)
+				border 4px solid azul
+				
+			img
+				size(100%)
+		span
+			color white
+			font-size em(18px)
+			margin-top 10px
+	&-userNav
+		ul
+			li
+				size(100%, 35px)
+				display flex
+				align-items center
+				@media screen and (min-width: 768px)
+					height 40px	
+				a
+					color white
+					font-weight 300
+					display flex
+					align-items center
+				&:before
+					content ''
+					size(35px)
+					display block
+					background url('../img/sprite-sheet.svg') no-repeat
+					@media screen and (min-width: 768px)
+						size(40px)
+				&:nth-child(1):before
+					background-position -7.5px -7.5px
+					@media screen and (min-width: 768px)
+						background-position -5px -5px
+				&:nth-child(2):before
+					background-position -7.5px -57.5px
+					@media screen and (min-width: 768px)
+						background-position -5px -55px
+				&:nth-child(3):before
+					background-position -7.5px -107.5px
+					@media screen and (min-width: 768px)
+						background-position -5px -105px
+				&:nth-child(4):before
+					background-position -7.5px -157.5px
+					@media screen and (min-width: 768px)
+						background-position -5px -155px
+				&:nth-child(5):before
+					background-position -7.5px -207.5px
+					@media screen and (min-width: 768px)
+						background-position -5px -205px
+	&-logout
+		size(100%, 40px)
+		display flex
+		justify-content flex-end
+		align-items center
+		padding 0 10px
+		a
+			color azul
+			font-weight 300
+			font-size em(14px)
+			
+.siteWrapper
+	transition transform 0.3s
+	position relative
+	z-index 2
+	background #f3f3f3
+	margin-top 50px
+
+.searchBox
+	background url('../img/search-image.jpg') no-repeat center
+	background-size cover
+	size(100%, 500px)
+	font-weight 300
+	@media screen and (min-width: 1280px)
+		height 700px
+	&-wrapper
+		width 90%
+		max-width 768px
+	&-tabs
+	&-input
+		width 100%
+	&-tabs
+		display flex
+		flex-wrap nowrap
+		justify-content space-between
+		margin-bottom 10px
+		max-width 320px
+		div
+			size(49%, 50px)
+			background rgba(negro, .90)
+			color white
+			&:last-child
+				background rgba(negro, .50)
+	&-input
+		size(100%, 50px)
+		position relative
+		label
+			position absolute
+			right 0
+			top 0
+			size(50px)
+			padding 14px
+			svg
+				size(100%)
+				fill azul
+		input
+			size(100%)
+			padding-left 10px
+			font-family 'Roboto'
+			font-size em(18px)
+			font-weight 300
+			border-radius 0
+			border 0
+			-webkit-appearance none
+			box-shadow 0px 2px 2px rgba(negro, .50)
+			outline 0
+			
+footer
+	background negro
+	padding 20px
+	.copy-right
+		margin-top 20px
+		display block
+		width 100%
+		text-align center
+		color white
+		font-size em(12px)
+		font-weight 300
+	.container
+		@media screen and (min-width: 768px)
+			display flex
+			flex-wrap wrap
+	.footerNav
+		display flex
+		flex-wrap wrap
+		width 100%
+		@media screen and (min-width: 768px)
+			flex-wrap nowrap
+			justify-content space-around
+			width calc(100% - 300px)			
+		&-list
+			width 100%
+			@media screen and (min-width: 768px)
+				width 20%
+			nav
+				display none
+				background rgba(black, .10)
+				@media screen and (min-width: 768px)
+					display block
+					background none
+				ul
+					li
+						line-height 40px
+						padding-left 10px
+						@media screen and (min-width: 768px)
+							padding-left 0
+						a
+							font-size em(14px)
+			a
+			h2
+				color white
+			h2
+				font-weight 400
+				font-size 1rem
+				display block
+				position relative
+				size(100%, 40px)
+				line-height 40px
+				border-bottom 1px dotted rgba(#cacaca, .10)
+				svg
+					size(40px)
+					padding 10px
+					position absolute
+					right 0
+					top 0
+					fill azul
+					@media screen and (min-width: 768px)
+						display none
+			a
+				font-weight 300
+	.footerAbout
+		text-align justify
+		color white
+		font-weight 300
+		padding 20px 0
+		font-size em(14px)
+		@media screen and (min-width: 768px)
+			width 300px
+			text-align right
+		img
+			display block
+			margin 0 auto 20px
+			@media screen and (min-width: 768px)
+				margin-right 0
+		p
+			line-height 20px				
+		nav
+			width 100%
+			ul
+				padding 20px 0 0
+				display flex
+				justify-content center
+				@media screen and (min-width: 768px)
+					justify-content flex-end
+				li
+					size(45px)
+					background rgba(black, .10)
+					margin 0 5px
+					svg
+						size(100%)
+						padding 10px
+					&:nth-child(1)
+						fill #3b5998
+					&:nth-child(2)
+						fill #4099FF
+					&:nth-child(3)
+						fill #D34836	
+		
+	
+.loginPopup
+	background rgba(negro, 0.75)
+	position fixed
+	top 0
+	left 0
+	z-index 5
+	size(100%)
+	display flex
+	justify-content center
+	align-items center
+	visibility hidden
+	opacity 0
+	transition: opacity 0.3s 0, visibility 0 0.3s;
+	@media screen and (min-width: 768px)
+		align-items flex-start
+	@media screen and (min-width: 960px)
+		align-items center
+	&-wrapper
+		background white
+		font-weight 300
+		size(90%)
+		overflow-y auto
+		padding 20px 16px 
+		text-align center
+		position relative
+		max-width 480px
+		transform: translateY(-100px);
+		transition-duration: 0.3s;
+		@media screen and (min-width: 768px)
+			height auto
+			margin-top 20px
+		@media screen and (min-width: 960px)
+			max-width 700px
+			display flex
+			flex-wrap wrap
+		span
+			font-size em(18px)
+			font-weight 300
+			display block
+			margin-bottom 20px
+			width 100%
+	&-media
+		border-bottom 1px solid rgba(negro, .10)
+		display flex
+		flex-wrap wrap
+		@media screen and (min-width: 768px)
+			justify-content space-around
+		@media screen and (min-width: 960px)
+			width 58%	
+			align-content flex-start
+			border-bottom 0
+			border-right 1px solid rgba(negro, .10)
+			padding-right 10px
+			margin-right 10px
+		a
+			background red
+			size(100%, 50px)
+			display block
+			position relative
+			color white
+			line-height 50px
+			font-weight 300
+			margin-bottom 5px
+			text-align left
+			padding-left 50px
+			@media screen and (min-width: 768px)
+				width 49%
+			@media screen and (min-width: 960px)
+				font-size em(14px)
+			&:nth-child(1)
+				background #3b5998
+			&:nth-child(2)
+				background #D34836
+			&:nth-child(3)
+				background #4099FF
+			&:nth-child(4)
+				background #007bb6
+			svg
+				position absolute
+				left 0
+				top 0
+				size(50px)
+				padding 15px
+				fill white
+	&-form
+		padding 5px 0
+		@media screen and (min-width: 960px)
+			width 40%
+			padding 0	
+		p
+			position relative
+			size(100%, 50px)
+			margin-bottom 5px
+		label
+			position absolute
+			top 0
+			left 0
+			size(50px, 100%)
+			svg
+				size(100%)
+				padding 16px
+				fill rgba(negro, .25)
+		input[type="text"]
+		input[type="password"]
+		button
+			size(100%, 50px)
+			-webkit-appearance none
+			border-radius 0
+			font-family 'Roboto'
+			font-weight 300
+			font-size 14px
+			outline 0
+		input[type="text"]
+		input[type="password"]
+			padding-left 50px
+			border 1px solid rgba(negro, .10)
+		button
+			background azul
+			color white
+			border 0
+		.password
+			display block
+			size(100%, 30px)
+			display flex
+			justify-content flex-end
+			align-items center
+			font-size em(12px)
+			text-decoration underline
+			color negro
+	&-signUp
+		padding 10px 0
+		@media screen and (min-width: 960px)
+			width 58%
+			position absolute
+			bottom 25px
+			left 0
+		h2
+			color negro
+			font-size em(18px)
+			margin-bottom 10px
+		a	
+			color azul
+			font-size em(14px)
+
+.signUp
+	position absolute
+	size(100%)
+	top 0
+	left 0
+	background negro
+	display flex
+	justify-content center
+	align-items center
+	&-wrapper
+		width 600px
+		&--img
+			size(100%, 75px)
+			display flex
+			justify-content center
+			align-items center
+			img
+				height 25px
+		&--form
+			background white
+			border-radius 5px
+			padding 20px
+			text-align center
+			box-shadow 0px 2px 3px rgba(black, .25)
+			.form
+				display flex
+				flex-wrap wrap
+				justify-content space-around
+			.form--finish
+				width 49%
+			h1
+			.rocket
+				font-size em(20px)
+				margin-bottom 20px
+				fill azul
+			span
+				width 100%
+				display block
+				font-weight 300
+				line-height 20px
+				margin-bottom 10px
+				strong
+					font-weight 400
+			.link
+				color rgba(negro, .75)
+				font-size rem(14px)
+				margin 0
+				a
+					color azul
+					text-decoration underline
+			p
+				size(100%, 50px)
+				position relative
+				margin-bottom 10px
+				label
+					position absolute
+					left 0
+					top 0
+					size(50px)
+					line-height 50px
+					text-align center
+					svg
+						size(20px)
+						margin-top -5px
+						vertical-align middle
+						fill rgba(negro, .25)
+				input
+					size(100%)
+					padding-left 50px
+					font-size 1rem
+					font-weight 300
+					border-radius 2px
+					font-family 'Roboto'
+					outline 0
+					border 1px solid rgba(negro, .20)
+			button
+				border 1px solid azul
+				background white
+				size(200px, 40px)
+				color negro
+				font-size 16px
+				border-radius 2px
+				
+
+/* Profile */
+
+.profile-wrapper
+	.container
+		padding 20px 0
+		display flex
+		justify-content space-between
+		.profileNav
+			max-width 225px
+			width 100%			
+			&-photo
+				text-align center
+				margin-bottom 10px
+				background white
+				border 1px solid rgba(black, .10)
+				.photo
+					position relative
+					&:hover
+						label
+							display flex
+				img
+					width 100%
+				h1
+					font-size em(18px)
+					font-weight 300
+					padding 10px 0
+				label
+					position absolute
+					display none
+					cursor pointer
+					size(100%)
+					background rgba(azul, .50)
+					top 0
+					left 0
+					justify-content center
+					align-items center
+					svg
+						size(50px)
+						fill white
+				input
+					display none
+			&-menu
+				ul
+					.is-active
+						border-left 5px solid azul
+					li
+						height 50px
+						line-height 50px
+						padding-left 50px
+						position relative
+						background white
+						transition all 25ms
+						margin-bottom 1px 
+						a
+							color negro
+							font-weight 300
+							display block
+						&:before
+							content ''
+							size(50px)
+							position absolute
+							top 0 
+							left 0
+							background url('../img/sprite-sheet.svg') no-repeat
+							background-position -0px -0px
+						&:nth-child(2):before
+							background-position -0px -50px
+						&:nth-child(3):before
+							background-position -0px -100px
+						&:nth-child(4):before
+							background-position -0px -150px
+						&:nth-child(5):before
+							background-position -0px -200px
+		.profileInfo
+			background white
+			width calc(100% -  235px)
+			display flex
+			flex-wrap wrap
+			justify-content space-between
+			padding 20px
+			border 1px solid rgba(black, .10)
+			&-row
+				width 48%
+				h1
+					font-size em(18px)
+					font-weight 400
+					margin-bottom 20px
+					display none
+				h2
+					font-size em(14px)
+					margin-bottom 10px
+					font-weight 300
+				&:first-child
+					border-right 1px solid rgba(black, .10)
+				.birthday
+					display flex
+					justify-content space-between
+				p
+					display block
+					size(70%, 40px)
+					margin-bottom 1rem
+					position relative
+					input
+					select
+						font-family 'Roboto'
+						font-weight 300
+						border 1px solid rgba(black, .10)
+						outline 0	
+					input[type="text"]
+						size(100%)
+						padding-left 40px					
+					input[type="text"]:focus  ~ label
+						svg
+							fill azul
+					select
+						height 40px
+					select[name='month']
+						width 48%
+					select[name='day']
+						width 20%
+					select[name='year']
+						width 30%		
+					label
+						size(40px)
+						//background red
+						position absolute
+						top 0
+						left 0
+						line-height 40px
+						text-align center
+						svg
+							size(18px)
+							fill rgba(negro, .75)
+							vertical-align middle
+				.sex
+					display flex
+					input[type='radio']
+						display none
+						&:checked + label
+							background azul
+							svg
+								fill white
+					label
+						position static
+						display block
+						background rgba(negro, .25)
+						margin-right 10px
+						cursor pointer
+						svg
+							fill white
+							size(20px)
+		
+		.connect
+			width 100%
+			border-top 1px solid rgba(negro, .10)
+			margin-top 20px
+			padding-top 20px
+			h1
+				font-weight 300
+				font-size em(20px)
+			.contect-item
+				margin 20px 0
+				div
+					size(75px)
+					background #cacaca
+					line-height 75px
+					text-align center
+					svg
+						size(50px)
+						vertical-align middle
+						fill white
+
+			
+
+/* Mensajes */
+
+.messages
+	background white
+	width calc(100% -  235px)
+	height 768px
+	border 1px solid rgba(black, .10)
+	display flex
+	.messagesThumb					
+		size(450px, 100%)
+		overflow-y auto
+		border-right 1px solid rgba(negro, .10)
+		.messagesThumb-item
+			size(100%, 100px)
+			display flex
+			position relative
+			padding 10px
+			font-weight 300
+			border-top 1px solid rgba(negro, .10)
+			cursor pointer
+			&:hover
+				background rgba(#cacaca, .10)
+			&:nth-child(1)
+				border-left 5px solid azul
+				background rgba(#cacaca, .10)
+				border-top 0
+			&:last-child
+				border-bottom 1px solid rgba(negro, .10)
+			.item--photo
+				size(50px, 100%)
+				overflow hidden
+				display flex
+				align-items center
+				div
+					circle(40px)
+					overflow hidden
+					img
+						width 100%
+			.item--text
+				width calc(100% - 100px)
+				display flex
+				flex-wrap wrap
+				align-content center
+				h1
+					margin-bottom 5px
+					font-weight 300
+					color azul
+				p
+					font-size em(14px)
+					line-height 20px
+					size(100%, 40px)
+					overflow hidden
+			.item--time
+				position absolute
+				top 0
+				right 0
+				display block
+				margin 10px 20px 10px
+				font-size em(12px)
+				
+	.messagesWrapper
+		width calc(100% - 450px)
+		height 100%
+		&-title
+			display flex
+			flex-wrap wrap
+			z-index 999
+			padding 0 0 0 10px 
+			justify-content flex-start
+			align-items center
+			height 75px
+			//border-bottom 1px solid rgba(negro, .10)
+			position relative
+			box-shadow 0px 1px 1px rgba(black, .25)
+			figure
+				size(50px)
+				background-size cover
+				background-position center
+				margin-right 10px
+				border 1px solid rgba(negro, .50)
+			h1
+				font-size em(18px)
+				color azul
+				font-weight 300
+				margin-bottom 10px
+			h2
+				font-size em(14px)
+				color #666
+				font-weight 300
+			.archivar
+				size(75px)
+				line-height 75px
+				text-align center
+				cursor pointer
+				position absolute
+				top 0
+				right 0
+				&:hover
+					svg
+						fill azul
+				svg
+					size(20px)
+					fill rgba(negro, .75)
+					vertical-align middle						
+	
+
+	.messagesWrapper-messages
+		width 100%
+		height calc(100% - 75px)
+		overflow-y auto
+		.recievedMessage
+		.sendedMessage
+			display flex
+			flex-wrap wrap
+			padding 20px 20px 0 20px
+			&-photo
+				circle(45px)
+				overflow hidden
+				img
+					height 100%
+			&-name
+				width 100%
+				color negro
+				//font-weight 400
+				border-bottom 1px solid rgba(negro, .05)
+				margin-bottom 5px
+				font-family 'Roboto Condensed'
+				font-size 14px
+			&-message
+				//border 1px solid #f4f4f4
+				border-radius 5px
+				margin-left 10px
+				padding 10px
+				background #f3f3f3
+				font-weight 300
+				line-height 25px
+				max-width calc(100% - 70px)
+				box-shadow 0px 1px 1px rgba(black, .25)
+				padding-right 20px
+				p
+					font-size rem(15px)
+					color negro
+			span
+				width 100%
+				font-size em(12px)
+				color #666
+				font-weight 400
+				line-height 40px
+				display block
+				display flex
+				justify-content center
+				order 3
+				font-family 'Roboto Condensed'
+				
+	
+		.sendMessage
+			background rgba(#f3f3f3, .25)
+			border-top 1px solid rgba(negro, .10)
+			padding 20px
+			display flex
+			//flex-wrap wrap
+			justify-content space-around
+			textarea
+			button
+				line-height 20px
+				font-weight 300
+				height 60px
+				font-family 'Roboto'
+			textarea
+				width calc(100% - 110px)
+				resize none
+				border 1px solid rgba(negro, .10)
+				outline 0
+			button
+				border 1px solid azul
+				background none
+				color azul
+				width 100px
+
+/* Actions */
+
+
+.sideNav.is-nav-visible
+	opacity 1
+	z-index 1
+	transition all 0.3s
+	
+.topBar.is-nav-visible
+.siteWrapper.is-nav-visible
+	transform translateX(-250px)
+	transition all 0.3s
+	filter: brightness(.5);
+
+.is-visible
+	opacity 1
+	visibility visible
+	transition opacity 0.3s, visibility 0.3s
+	.loginPopup-wrapper
+		transform: translateY(0);
+		
+
+/* Nano Scroller */
+
+/** initial setup **/
+.nano {
+  position : relative;
+  width    : 100%;
+  height   : 100%;
+  overflow : hidden;
+}
+.nano > .nano-content {
+  position      : absolute;
+  overflow      : scroll;
+  overflow-x    : hidden;
+  top           : 0;
+  right         : 0;
+  bottom        : 0;
+  left          : 0;
+}
+.nano > .nano-content:focus {
+  outline: thin dotted;
+}
+.nano > .nano-content::-webkit-scrollbar {
+  display: none;
+}
+.has-scrollbar > .nano-content::-webkit-scrollbar {
+  display: block;
+}
+.nano > .nano-pane {
+  background : rgba(negro, .10)
+  position   : absolute;
+  width      : 10px;
+  right      : 0;
+  top        : 0;
+  bottom     : 0;
+  visibility : hidden\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : .01;
+  -webkit-transition    : .2s;
+  -moz-transition       : .2s;
+  -o-transition         : .2s;
+  transition            : .2s;
+}
+.nano > .nano-pane > .nano-slider {
+  background rgba(negro, .50)
+  position              : relative;
+  margin                : 0 1px;
+}
+.nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {
+  visibility : visible\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : 0.99;
+}
