@@ -57,7 +57,7 @@
             </nav>
           </div>
         </div>
-        <div class="footerAbout"><img src="/views/img/emprendox-logo.svg" alt=""/>
+        <div class="footerAbout"><img src="/public/img/emprendox-logo.svg" alt=""/>
           <p>
              Sotheby's International Realty Canada, Brokerage.
              Sotheby's International Realty® is a registered trademark licensed to Sotheby's International Realty Affiliates, Inc. Each Office Is Independently Owned And Operated.
@@ -105,7 +105,7 @@
               <use xlink:href="#linkedin"></use>
             </svg>Iniciar con linkedin</a></div>
         <div class="loginPopup-form">
-          <form action="index.php" method="post">
+          <form action="/login.php" method="post">
             <p>
               <label>
                 <svg>
@@ -126,12 +126,12 @@
           </form>
         </div>
         <div class="loginPopup-signUp">
-          <h2> ¿No tienes cuenta?</h2><a href="registro.php"> Regístrate</a>
+          <h2> ¿No tienes cuenta?</h2><a href="/registro"> Regístrate</a>
         </div>
       </div>
     </div>
   <?php } ?>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="/views/js/main.js"></script>
+  <script src="/public/js/main.js"></script>
 </body>
 </html>
