@@ -1,13 +1,11 @@
 <?php 
 
-	$bool = false;
+	$tamaño = "grande";
+	$var_array = array("color" => "azul",
+                   "tamaño"  => "medio",
+                   "forma" => "esfera");
+	extract($var_array);
 
-	#for 
 
-	if ($aleatorio == $VALORES) {
-	 	return $bool = true;
-	 	exit;
-	}
-
-	var_dump($bool);
+	var_dump($_COOKIE);
 ?>

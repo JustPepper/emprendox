@@ -37,10 +37,16 @@ if ($lectura->num_rows > 0)
 }
    $con->close();
 
+
 }
 ?>
 
+
+
 <?php include 'includes/header.php' ?>
+
+
+
 
   <div class="siteWrapper">
     <div class="searchBox u-flex-center">
@@ -51,6 +57,7 @@ if ($lectura->num_rows > 0)
           </div>
           <div class="u-flex-center">
             <label>Franquicias</label>
+
           </div>
         </div>
         <div class="searchBox-input">
