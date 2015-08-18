@@ -1,3 +1,13 @@
+<?php 
+
+  $con = new mysqli(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+  $con->select_db(DB_NAME);
+  $consulta = "SELECT mensajes.hora as hora,usuarios.id_usuario, mensajes.id_remitente, mensajes.remitente_nombre as nomremitente, mensajes.descripcion as descripcion, mensajes.fecha_enviado as fecha FROM usuarios LEFT JOIN mensajes ON mensajes.id_usuario=usuarios.id_usuario Where usuarios.id_usuario='66' OR  usuarios.id_usuario='67 'and mensajes.id_remitente='67' OR mensajes.id_remitente='66' Order by mensajes.hora;";
+  $lectura = $con->query($consulta);
+
+?>
+
+
 <?php include '/includes/header.php' ?>
 
 
@@ -6,7 +16,7 @@
       <div class="container">
         <div class="profileNav">
           <div class="profileNav-photo">
-            <div class="photo"><img src="img/default-avatar.jpg" alt=""/>
+            <div class="photo"><img src="<?= $_SESSION['foto'] ?>" alt=""/>
               <label for="subir">
                 <svg>
                   <use xlink:href="#camera"></use>
@@ -14,7 +24,7 @@
               </label>
               <input type="file" id="subir"/>
             </div>
-            <h1>Josue Maridueña</h1>
+            <h1><?= $_SESSION['nombre'] , ' ', $_SESSION['apellido'] ?></h1>
           </div>
           <nav class="profileNav-menu">
             <ul>
@@ -31,7 +41,7 @@
             <div class="nano-content">
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/diana.jpeg" alt=""/></div>
+                  <div><img src="/public/img/diana.jpeg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Diana Benedictis</h1>
@@ -41,7 +51,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/default-avatar.jpg" alt=""/></div>
+                  <div><img src="/public/img/default-avatar.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Josue Maridueña</h1>
@@ -51,7 +61,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/andres.jpg" alt=""/></div>
+                  <div><img src="/public/img/andres.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Andrés Naranjo</h1>
@@ -61,7 +71,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/marlon.jpg" alt=""/></div>
+                  <div><img src="/public/img/marlon.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Marlon Arciniegas</h1>
@@ -71,7 +81,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/erick.jpg" alt=""/></div>
+                  <div><img src="/public/img/erick.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Erick Bravo</h1>
@@ -81,7 +91,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/alejandra.jpg" alt=""/></div>
+                  <div><img src="/public/img/alejandra.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Alejandra Paredes</h1>
@@ -91,7 +101,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/jorge.jpg" alt=""/></div>
+                  <div><img src="/public/img/jorge.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Jorge Santamaría</h1>
@@ -101,7 +111,7 @@
               </div>
               <div class="messagesThumb-item">
                 <div class="item--photo">
-                  <div><img src="img/juan.jpg" alt=""/></div>
+                  <div><img src="/public/img/juan.jpg" alt=""/></div>
                 </div>
                 <div class="item--text">
                   <h1>Juan Rodriguez</h1>
@@ -112,74 +122,21 @@
             </div>
           </div>
           <div class="messagesWrapper">
-            <div class="messagesWrapper-title">
-              <figure style="background-image: url('img/SweetCoffee.jpg');"></figure>
-              <div class="title--text">
-                <h1> Sweet & Coffee &copy;</h1>
-                <h2> $50.000</h2>
-              </div>
-              <div class="archivar">
-                <svg>
-                  <use xlink:href="#inbox"></use>
-                </svg>
-              </div>
-            </div>
             <div class="messagesWrapper-messages nano">
               <div class="nano-content">
-                <div class="recievedMessage">
-                  <div class="recievedMessage-photo"><img src="img/diana.jpeg" alt=""/></div>
-                  <div class="recievedMessage-message">
-                    <div class="recievedMessage-name">
-                      <h1> Diana Benedictis</h1>
-                    </div>
-                    <p> Hello there. Thanks for the follow. Did you notice, that I'm an egg? A talking egg? Damn!</p>
-                  </div><span> 4:32pm</span>
-                </div>
-                <div class="sendedMessage">
-                  <div class="recievedMessage-photo"><img src="img/default-avatar.jpg" alt=""/></div>
-                  <div class="recievedMessage-message">
-                    <div class="recievedMessage-name">
-                      <h1> Josue Maridueña</h1>
-                    </div>
-                    <p> Yeah that's crazy, but people can change their own picture and build their own Twitter conversation with this generator, so it doesn't matter that you are an egg</p>
-                  </div><span> 6:02pm</span>
-                </div>
-                <div class="recievedMessage">
-                  <div class="recievedMessage-photo"><img src="img/diana.jpeg" alt=""/></div>
-                  <div class="recievedMessage-message">
-                    <div class="recievedMessage-name">
-                      <h1> Diana Benedictis</h1>
-                    </div>
-                    <p>  Thanks mate! Feel way better now. Oh, and guys, these messages will be removed once your add your own :-)</p>
-                  </div><span> 7:17pm</span>
-                </div>
-                <div class="sendedMessage">
-                  <div class="recievedMessage-photo"><img src="img/default-avatar.jpg" alt=""/></div>
-                  <div class="recievedMessage-message">
-                    <div class="recievedMessage-name">
-                      <h1> Josue Maridueña</h1>
-                    </div>
-                    <p>  Yeah, and you can build your own & download image with no watermark! Use the editor to the left to get started, it will automatically remove these messages.</p>
-                  </div><span> 7:19pm</span>
-                </div>
-                <div class="recievedMessage">
-                  <div class="recievedMessage-photo"><img src="img/diana.jpeg" alt=""/></div>
-                  <div class="recievedMessage-message">
-                    <div class="recievedMessage-name">
-                      <h1> Diana Benedictis</h1>
-                    </div>
-                    <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quisquam unde dolor pariatur iusto impedit mollitia placeat dolores, aspernatur velit.</p>
-                  </div><span> 8:23pm</span>
-                </div>
-                <div class="sendedMessage">
-                  <div class="recievedMessage-photo"><img src="img/default-avatar.jpg" alt=""/></div>
-                  <div class="recievedMessage-message">
-                    <div class="recievedMessage-name">
-                      <h1> Josue Maridueña</h1>
-                    </div>
-                    <p>  OK cya!</p>
-                  </div><span> 8:57pm</span>
-                </div>
+
+                <?php while ($lineas = $lectura->fetch_assoc()) { ?>
+                  <div class="recievedMessage">
+                    <div class="recievedMessage-photo"><img src="/public/img/diana.jpeg" alt=""/></div>
+                    <div class="recievedMessage-message">
+                      <div class="recievedMessage-name">
+                        <h1><?= $lineas['nomremitente']; ?></h1>
+                      </div>
+                      <p><?= $lineas['descripcion']; ?></p>
+                    </div><span><?= $lineas['hora']; ?></span>
+                  </div>
+                 <?php } ?>
+              
                 <div class="sendMessage">
                   <textarea name="" cols="30" rows="10"></textarea>
                   <button> Enviar Mensaje</button>

@@ -1,6 +1,4 @@
 <?php 
-     //incluimos la conexion a mysqlserver
-    require_once("/conexion.php");
 
     //recibimos el id pasado por la variable
     $id= $_GET["id"];

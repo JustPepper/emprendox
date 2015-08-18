@@ -1,8 +1,5 @@
 <?php
 
-	//incluimos la conexion a mysqlserver
-	require_once("/conexion.php");
-
 	$codigo = $_GET["codigo"];
 	$consulta= "SELECT id_usuario, codigo, fecha_expiracion FROM usuarios where codigo='$codigo'";
 	$lectura = $con->query($consulta);

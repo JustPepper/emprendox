@@ -1,7 +1,5 @@
  <?php
 
-   //incluimos la conexion a mysqlserver
-   require_once("/conexion.php");
    //incluimos la funcion   que valida si el email escrito es valido
    require_once("/funcion.php");
 
