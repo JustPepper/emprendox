@@ -132,6 +132,8 @@
     </div>
   <?php } ?>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="/public/js/nanoscroller.js"></script>
+  <script>$(".nano").nanoScroller();</script>
   <script src="/public/js/main.js"></script>
 </body>
 </html>

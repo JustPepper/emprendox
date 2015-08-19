@@ -31,3 +31,31 @@ $('.footerNav-list h2').click(function() {
 });
 
 
+$(document).ready(function() {
+	var scrollHeight = $('.scrollToDown').height();
+	$('.scrollToDown').scrollTop(scrollHeight);
+});
+
+
+$(document).ready(function() {
+
+    $(".messagesThumb-item").click(function() {     
+
+    	console.log('clicked');     
+
+      	$.ajax({ 
+      		cache: false, 
+	        type: "GET",
+	        data: { usuario_id: "5", remitente_id : "67"} ,
+	        //dataType: "json",
+	        url: "/includes/messagesAjax.php",
+
+	        success: function(response){                    
+	            $(".scrollToDown").html(response);
+	            //alert(response); 
+	        }
+		});
+	});
+});
+
+console.log(SESSION);

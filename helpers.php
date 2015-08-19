@@ -14,7 +14,7 @@
 	}
 
 	# Función para llamar a los controladores ( URL )
-	function controller($name) {
+	function controller($name, $con) {
 
 		# Redireccionar si la variables está vacía
 		if (empty($name)) {
@@ -31,4 +31,5 @@
 			header("HTTP/1.0 404 Not Found");
         	exit("Pagina no encontrada");
 		}
+
 	}

@@ -9,6 +9,7 @@
 			$correo = $_POST["correo"];
 			$clave = $_POST["password"];
 
+            
 			$consulta = "SELECT id_usuario, foto, nombres, apellido FROM usuarios WHERE correo='$correo' and clave='$clave'";
 			$lectura = $con->query($consulta);
 

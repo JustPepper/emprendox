@@ -1,12 +1,13 @@
 <?php
 require_once ("conexion.php");
 
-$id_usuario = "66"; // este el id al que va el mensaje que es marlon
+$id_usuario = "67"; // este el id al que va el mensaje que es marlon
+$destinatario_nombre="Josue MAridueña"; // al que va el mensaje
+$id_remitente="5"; // este es el que esta logeado con  $_SESSION 
+$remitente_nombre="Diana Benedictis"; // este es que esta logeado  con  $_SESSION
 $estado="No Leido";
 $fecha = date('Y/m/d');
-$remitente_nombre="Diana Benedictis"; // este es que esta logeado  con  $_SESSION
-$id_remitente="67"; // este es el que esta logeado con  $_SESSION 
-$destinatario_nombre="Marlon Arciniegas"; // al que va el mensaje
+
 $hora = date('G:i:s');
 
 var_dump($id_usuario, $estado, $fecha, $remitente_nombre, $id_remitente, $destinatario_nombre);

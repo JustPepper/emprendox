@@ -11,5 +11,6 @@
 
 
   # Controlador para llamar a las vistas
+  
 
-  controller($_GET['url']);
+  controller($_GET['url'], $con);

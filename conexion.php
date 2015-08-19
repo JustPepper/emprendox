@@ -12,3 +12,5 @@
       die("Error no se pudo establecer la conexion" .mysqli_connect_error());
     }
     $con->select_db(DB_NAME);
+
+    
